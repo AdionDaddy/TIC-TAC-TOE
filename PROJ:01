@@ -1,0 +1,93 @@
+#import numpy as np
+import sys
+
+def EV():
+  x = int(input())
+  y = int(input())
+  return x,y
+
+def UM():
+  x = input()
+  return x
+
+SS = [["_","_","_"],["_","_","_"],["_","_","_"]]
+#S1 = np.array(S)
+for z in range(10):
+  print("user 1 move")
+  user1 = UM()
+  if user1 == "X" :
+    pass
+  else:
+    user1  = UM()
+  i,j = EV()
+  if "X" not in  SS[i][j] and "O" not in  SS[i][j]  :
+    SS[i][j] = (user1)
+  else :
+    i,j = EV()
+  for i in range(3):
+    for j in range(3):
+      print("|".join(SS[i][j]),end = ' ')
+    print("\n")
+  
+  for i in range(3):
+    if SS[i][0] == "X" or SS[i][0] == "O":
+        if SS[i][0] == SS[i][1]:
+          if SS[i][0] == SS[i][2]:
+            print(SS[i][0]+" winner")
+            sys.exit()
+          else :
+            pass
+        else :
+          pass
+    else:
+      pass
+  for  j in range(3):
+    if SS[0][j] == "X" or SS[0][j] == "O":
+        if SS[0][j] == SS[1][j]:
+          if SS[0][j] == SS[2][j]:
+            print(SS[0][0]+" winner")
+            sys.exit()
+          else :
+            pass
+        else:
+          pass
+    else:
+        pass
+ 
+  if SS[0][0] == "X" or SS[0][0] == "O":
+    if SS[0][0] == SS[1][1]:
+      if SS[0][0] == SS[2][2]:
+        print(SS[0][0]+" winner")
+        sys.exit()
+      else :
+        pass
+    else :
+      pass
+  else:
+      pass
+  if SS[0][2] == "X" or SS[0][2] == "O":
+    if SS[0][2] == SS[1][1]:
+      if SS[0][2] == SS[2][0]:
+        print(SS[0][2]+" winner")
+        sys.exit()
+      else :
+        pass
+    else :
+      pass
+  else:
+      pass
+  print("user 2 move")
+  user2 = UM()
+  if user2 == "O" :
+    pass
+  else:
+    user2  = UM()
+  i,j = EV()
+  if user2 not in  SS[i][j]  :
+    SS[i][j] = (user2)
+  else :
+    i,j = EV()
+  for i in range(3):
+    for j in range(3):
+      print("|".join(SS[i][j]),end = ' ')
+    print("\n")
